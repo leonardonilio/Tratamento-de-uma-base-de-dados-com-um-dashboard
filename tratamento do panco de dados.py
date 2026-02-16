@@ -87,18 +87,7 @@ for c in drop_cols:
     if c in orders_full.columns:
         orders_full = orders_full.drop(columns=[c])
 
-orders_full.rename(
-    columns={
-        "order_purchase_timestamp": "data_compra",
-        "order_approved_at": "data_aprovacao",
-        "tempo_entrega_dias": "dias_entrega",
-        "price": "preco_produto",
-        "payment_type": "tipo_pagamento",
-        "payment_value": "valor_pagamento",
-        "review_score": "nota_avaliacao",
-    },
-    inplace=True,
-)
+
 
 orders_full.to_csv("olist_analise_tratada.csv", index=False, encoding="utf-8")
 

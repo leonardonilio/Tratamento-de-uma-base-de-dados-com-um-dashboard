@@ -2,3 +2,6 @@
 pandas 
 sqlalchemy 
 sqlite3
+plotly
+seaborn
+matplotlib
