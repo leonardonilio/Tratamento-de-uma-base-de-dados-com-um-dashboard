@@ -1,0 +1,4 @@
+#Use o comando 'pip install -r requirements.txt' no terminal para instalar todas as dependencias utilizadas
+pandas 
+sqlalchemy 
+sqlite3
