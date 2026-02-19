@@ -1,7 +1,12 @@
+#Para executar o arquivo, é necessario abrir o terminal do projeto e executar o comando 'streamlit run Dashboard.py'. 
+#Abrirá uma nova aba do seu navegador, e então poderá ver o dashboard com os dados já filtrados
+
 import pandas as pd
 import streamlit as st
 import plotly.express as px
 
+
+# --- Filtros da página
 st.set_page_config(
     page_title="Dashboard de um banco de dados de um E-Commerce",
     page_icon="📊",
@@ -35,6 +40,8 @@ df_filtrado = df[
     (df['nota_avaliacao'].isin(nota_selecionada)) &
     (df['estado_cliente'].isin(estado_selecionado))
 ]
+
+
 # --- Conteúdo Principal ---
 st.title("🎲 Dashboard do E-commerce")
 st.markdown("Explore os dados dos produtos. Utilize os filtros à esquerda para refinar sua análise.")
@@ -59,7 +66,9 @@ col4.metric("Categorias mais vendida", categoria_mais_frequente)
 
 st.markdown("---")
 
+# --- Gráficos do projeto ---
 st.subheader("Gráficos")
+
 col_graf1, col_graf2 = st.columns(2)
 with col_graf1:
       if not df_filtrado.empty:
@@ -134,7 +143,7 @@ with col_graf4:
         .mean()
         .sort_values(ascending=False)   # menor → maior
         .head(10)
-        .sort_values(ascending=True) 
+        .sort_values(ascending=True)     
         .reset_index()
         )
 
@@ -147,7 +156,7 @@ with col_graf4:
         labels={"preco_produto": "Preço médio (R$)", "categoria_produto": "Categoria"},
         )
 
-         # 👇 FORÇA O PLOTLY A USAR A ORDEM DO DATAFRAME
+         # FORÇA O PLOTLY A USAR A ORDEM DO DATAFRAME
         fig_preco.update_layout(
         yaxis=dict(
             categoryorder="array",
