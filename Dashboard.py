@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 df = pd.read_csv("olist_tratada.csv")
-df = df.astype(str)
+
 st.sidebar.header("🔎 Filtros")
     
 categorias_vendidas = sorted(df['categoria_produto'].unique())
