@@ -12,7 +12,7 @@ df = pd.read_csv(
     "olist_tratada.csv",
     sep=",",
     encoding="utf-8",
-    low_memory=False,
+    engine="python", 
     on_bad_lines="skip" , 
     nrows=5000     # evita quebrar a leitura
 )
