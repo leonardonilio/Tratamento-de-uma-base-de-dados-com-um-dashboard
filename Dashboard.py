@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 df = pd.read_csv("olist_tratada.csv")
-
+df = df.astype(str)
 st.sidebar.header("🔎 Filtros")
     
 categorias_vendidas = sorted(df['categoria_produto'].unique())
@@ -213,6 +213,6 @@ with col_graf6:
 
 
 # --- Tabela de Dados Detalhados ---
-df_filtrado = df_filtrado.drop(columns=["order_id","data_compra"])
+
 st.subheader("Dados Detalhados")
 st.dataframe(df_filtrado)
