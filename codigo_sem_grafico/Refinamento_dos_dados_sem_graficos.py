@@ -1,7 +1,7 @@
 import pandas as pd
 import sqlite3
 
-DB_PATH = "olist.sqlite"
+DB_PATH = "data/olist.sqlite"
 
 conn = sqlite3.connect(DB_PATH)
 
@@ -89,6 +89,6 @@ for c in drop_cols:
 
 
 
-orders_full.to_csv("olist_analise_tratada.csv", index=False, encoding="utf-8")
+orders_full.to_csv("output/olist_analise_tratada.csv", index=False, encoding="utf-8")
 
 print("Tratamento concluído 🚀")

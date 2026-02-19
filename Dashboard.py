@@ -8,15 +8,7 @@ st.set_page_config(
     layout="wide",
 )
 
-df = pd.read_csv(
-    "olist_tratada.csv",
-    sep=",",
-    encoding="utf-8",
-    engine="python", 
-    on_bad_lines="skip" , 
-    nrows=5000     # evita quebrar a leitura
-)
-
+df = pd.read_csv("output/olist_tratada.csv")
 
 st.sidebar.header("🔎 Filtros")
     
@@ -221,5 +213,6 @@ with col_graf6:
 
 
 # --- Tabela de Dados Detalhados ---
-
+df_filtrado = df_filtrado.drop(columns=["order_id","data_compra"])
 st.subheader("Dados Detalhados")
+st.dataframe(df_filtrado)
