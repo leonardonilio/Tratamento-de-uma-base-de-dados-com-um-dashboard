@@ -13,7 +13,7 @@ df = pd.read_csv("olist_tratada.csv")
 st.sidebar.header("🔎 Filtros")
     
 categorias_vendidas = sorted(df['categoria_produto'].unique())
-categorias_selecionadas = st.sidebar.multiselect("Categorias mais Vendidas", categorias_vendidas, default=categorias_vendidas)
+categorias_selecionadas = st.sidebar.multiselect("Categorias", categorias_vendidas, default=categorias_vendidas)
 
 pagamentos_disponiveis = sorted(df['tipo_pagamento'].unique())
 pagamentos_selecionados = st.sidebar.multiselect("Tipos de pagamentos", pagamentos_disponiveis, default=pagamentos_disponiveis)
@@ -21,8 +21,6 @@ pagamentos_selecionados = st.sidebar.multiselect("Tipos de pagamentos", pagament
 meses_vendas = sorted(df['mes'].unique())
 mes_selecionados = st.sidebar.multiselect("Vendas por mês", meses_vendas, default=meses_vendas)
 
-preco_categoria = sorted(df['categoria_produto'].unique())
-preco_selecionados = st.sidebar.multiselect("Preço das categorias", preco_categoria, default=preco_categoria)
 
 nota_disponiveis = sorted(df['nota_avaliacao'].unique())
 nota_selecionada = st.sidebar.multiselect("Categorias com melhores avaliações", nota_disponiveis, default= nota_disponiveis)
@@ -34,7 +32,6 @@ df_filtrado = df[
     (df['categoria_produto'].isin(categorias_selecionadas)) &
     (df['tipo_pagamento'].isin(pagamentos_selecionados)) &
     (df['mes'].isin(mes_selecionados)) &
-    (df['categoria_produto'].isin(preco_selecionados)) &
     (df['nota_avaliacao'].isin(nota_selecionada)) &
     (df['estado_cliente'].isin(estado_selecionado))
 ]
@@ -53,7 +50,8 @@ if not df.empty:
 else:
         avaliacao_media, estado_mais_frequente, total_registros, categoria_mais_frequente, = 0, "", 0, ""
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4 = st.columns([1, 1, 1, 2])
+
 col1.metric("Avaliação do E-commerce", f"{avaliacao_media:,.0f}⭐")
 col2.metric("Estado líder em consumo", estado_mais_frequente)
 col3.metric("Total de Vendas", f"{total_registros:,}")
