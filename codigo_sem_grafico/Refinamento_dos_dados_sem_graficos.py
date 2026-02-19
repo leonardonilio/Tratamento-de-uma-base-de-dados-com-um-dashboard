@@ -1,7 +1,7 @@
 import pandas as pd
 import sqlite3
 
-DB_PATH = "data/olist.sqlite"
+DB_PATH = "olist.sqlite"
 
 conn = sqlite3.connect(DB_PATH)
 
