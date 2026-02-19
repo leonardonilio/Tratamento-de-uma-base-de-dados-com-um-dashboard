@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide",
 )
 
-df = pd.read_csv("olist_tratada.csv", nrows=100)
+df = pd.read_csv("olist_tratada.csv")
 
 st.sidebar.header("🔎 Filtros")
     
@@ -62,7 +62,7 @@ st.markdown("---")
 st.subheader("Gráficos")
 col_graf1, col_graf2 = st.columns(2)
 with col_graf1:
-      if not df_filtrado.empty:
+      if not df.empty:
             top_categorias = (
             df_filtrado['categoria_produto']
             .value_counts()
