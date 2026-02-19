@@ -1,4 +1,3 @@
 olist.sqlite
-gitignore
-.vscode
-.devcontainer
+.gitignore
+
