@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide",
 )
 
-df = pd.read_csv("olist_tratada.csv", encoding="utf-8")
+df = pd.read_csv("olist_tratada.csv", nrows=4000)
 
 st.sidebar.header("🔎 Filtros")
     
