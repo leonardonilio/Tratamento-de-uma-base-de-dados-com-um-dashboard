@@ -91,7 +91,7 @@ O projeto tem dois propósitos principais:
 
 │
 
-└── requirements.txt
+└── requirements.txt # (aqui fica as dependências que precisa instalar para funcionar o projeto)
 
 ---
 
